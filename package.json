@@ -1,0 +1,26 @@
+{
+  "name": "cotizaseguro",
+  "version": "1.0.0",
+  "description": "cotizador desarrollado por Juan de la torre, pero con mejoras",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "star": "npm index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juanvs23/cotizadorVehiculo.git"
+  },
+  "author": "Juan Carlos Avila",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juanvs23/cotizadorVehiculo/issues"
+  },
+  "homepage": "https://github.com/juanvs23/cotizadorVehiculo#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
