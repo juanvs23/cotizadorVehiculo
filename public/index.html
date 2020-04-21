@@ -26,65 +26,82 @@
                     <h1 class="text-center">Cotiza tu seguro de Auto</h1>
             </header>
             <div class="row contenido-formulario">
-                <div class="col col-md-10 mr-md-auto ml-md-auto">
+                <div class="col col-md-11 mr-md-auto ml-md-auto">
                   <form action="#" id="cotizar-seguro">
-                              
+                    <div class="row">
+                      <div class="col-md-7">
                                <div class="row">
-                                 <div class="col-md-4">
+                                 <div class="col-md-6">
                                   <div class="form-group">
                                     <label for="marca">Marca:</label>
-                                    <select class="form-control" class="selectaction" id="marca"  onchange="getModel();" >
+                                    <select class="form-control" class="selectaction" id="marca"  onchange="getType();" >
                                         <option value="">- Seleccionar -</option>
                                        
                                     </select>
+                                  </div>
                                 </div>
+                                
+                                  <div class="col-md-6">
+                                   <div class="form-group">
+                                     <label for="marca">Tipo de vehiculo:</label>
+                                     <select class="form-control" class="selectaction" id="type"  onchange="getYear();" >
+                                         <option value="">- Seleccionar -</option>
+                                        
+                                     </select>
+                                 </div>
                                  </div>
                                  <div class="col-md-4">
                                   <div class="form-group">
+                                    <label for="anio">Año:</label>
+                                    <select class="form-control" class="selectaction" onchange="getModel()" id="anio">
+                                      <option value="">- Seleccionar -</option>
+                                    </select>
+                            </div>
+                                 </div>
+                                 <div class="col-md-8">
+                                  <div class="form-group">
                                     <label for="model">Modelo:</label>
-                                    <select class="form-control" class="selectaction" onchange="getYear()"  id="model">
+                                    <select class="form-control" class="selectaction"   id="model">
                                         <option value="">- Seleccionar -</option>
                                         
                                     </select>
                                 </div>
                                  </div>
-                                 <div class="col-md-4">
-                                  <div class="form-group">
-                                    <label for="anio">Año:</label>
-                                    <select class="form-control" class="selectaction" id="anio">
-                                      <option value="">- Seleccionar -</option>
-                                    </select>
-                            </div>
-                                 </div>
-                               </div>
-                               
-                                <fieldset class="form-group">
-                                    <div class="row">
-                                         <legend class="col-form-legend col-12">Tipo Seguro</legend>
+                                 
+                                 <fieldset class="form-group col-12">
+                                  <div class="row">
+                                       <legend class="col-form-legend col-12">Tipo Seguro</legend>
 
-                                      <div class="col12">
-                                          <div class="form-check">
-                                            <label class="form-check-label">
-                                              <input class="form-check-input" type="radio" name="tipo" value="basico" checked>
-                                              Básico
-                                            </label>
-                                        </div>
+                                    <div class="col-12">
                                         <div class="form-check">
-                                            <label class="form-check-label">
-                                              <input class="form-check-input" type="radio" name="tipo" value="completo">
-                                              Completo
-                                            </label>
-                                        </div>
+                                          <label class="form-check-label">
+                                            <input class="form-check-input" type="radio" name="tipo" value="basico" checked>
+                                            Básico
+                                          </label>
+                                      </div>
+                                      <div class="form-check">
+                                          <label class="form-check-label">
+                                            <input class="form-check-input" type="radio" name="tipo" value="completo">
+                                            Completo
+                                          </label>
                                       </div>
                                     </div>
-                              </fieldset>
-
+                                  </div>
+                            </fieldset>
+                               </div>
+                      </div>
+                                
+                              
+                                <div class="col-md-4">
                           <div id="cargando">
                               <img src="img/spinner.gif">
                           </div>
+                                </div>
+                    </div>
+                          
                           <div id="resultado"></div>
                           <div class="form-group">
-                                  <button type="submit" class="btn btn-raised btn-primary">Cotizar
+                                  <button id="btnsubmit" type="submit" class="btn btn-raised btn-primary">Cotizar
                                   </button>
                           </div>
                   </form> 
@@ -131,6 +148,20 @@
       });
       $('#anio').select2({
         placeholder: 'Seleccione el año',
+        language: {
+
+          noResults: function() {
+      
+            return "No hay resultado";        
+          },
+          searching: function() {
+      
+            return "Buscando..";
+          }
+        }
+      });
+      $('#type').select2({
+        placeholder: 'Tipo de vehiculo',
         language: {
 
           noResults: function() {
